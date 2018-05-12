@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">Vaani Music Player</string>
+    <string name="HomeTab1">Tracks</string>
+    <string name="HomeTab2">Albums</string>
+    <string name="HomeTab3">Artists</string>
+    <string name="HomeTab4">Genres</string>
+    <string name="HomeTab5">Playlist</string>
+    <string name="HomeTab6">Folders</string>
+    <string-array name="HomeScreen">
+        <item>@string/HomeTab1</item>
+        <item>@string/HomeTab2</item>
+        <item>@string/HomeTab3</item>
+        <item>@string/HomeTab4</item>
+        <item>@string/HomeTab5</item>
+        <item>@string/HomeTab6</item>
+    </string-array>
 </resources>

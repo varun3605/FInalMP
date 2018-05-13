@@ -6,6 +6,21 @@
     <string name="HomeTab4">Genres</string>
     <string name="HomeTab5">Playlist</string>
     <string name="HomeTab6">Folders</string>
+    <string name="SearchButton">Search</string>
+    <string name="Nav1">Library</string>
+    <string name="Nav2">Now Playing</string>
+    <string name="Nav3">Current Playlist</string>
+    <string name="Nav4">Playlists</string>
+    <string name="Nav5">Mp3 Cutter</string>
+    <string name="Nav6">Sleep Timer</string>
+    <string name="Nav7">Equalizer</string>
+    <string name="Nav8">Settings</string>
+    <string name="Nav9">Transfer</string>
+    <string name="Nav10">Share App</string>
+    <string name="Nav11">Explore App</string>
+    <string name="Nav12">Send Feedback</string>
+    <string name="Nav13">About Us</string>
+    <string name="search_hint">Enter Song Name… </string>
     <string-array name="HomeScreen">
         <item>@string/HomeTab1</item>
         <item>@string/HomeTab2</item>

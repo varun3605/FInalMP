@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group
+        android:id="@+id/playback_control"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_library"
+            android:icon="@drawable/ic_library_music_black_24dp"
+            android:title="@string/Nav1" />
+        <item
+            android:id="@+id/nav_now_playing"
+            android:icon="@drawable/ic_headset_black_24dp"
+            android:title="@string/Nav2" />
+        <item
+            android:id="@+id/nav_current_list"
+            android:icon="@drawable/ic_playlist_play_black_24dp"
+            android:title="@string/Nav3" />
+        <item
+            android:id="@+id/nav_all_playlist"
+            android:icon="@drawable/ic_queue_music_black_24dp"
+            android:title="@string/Nav4"
+            />
+
+    </group>
+
+    <group
+        android:id="@+id/extras">
+        <item
+            android:id="@+id/nav_mp3cut"
+            android:icon="@drawable/ic_content_cut_black_24dp"
+            android:title="@string/Nav5" />
+        <item
+                android:id="@+id/nav_sleep_timer"
+                android:icon="@drawable/ic_access_alarm_black_24dp"
+                android:title="@string/Nav6" />
+
+        </group>
+
+    <group
+        android:id = "@+id/config">
+        <item
+            android:id="@+id/nav_equalizer"
+            android:icon="@drawable/ic_equalizer_black_24dp"
+            android:title="@string/Nav7" />
+
+        <item
+            android:id="@+id/settings"
+            android:icon="@drawable/ic_settings_black_24dp"
+            android:title="@string/Nav8"
+            />
+    </group>
+
+    <group
+        android:id = "@+id/sharing">
+        <item
+            android:id="@+id/nav_send"
+            android:icon="@drawable/ic_menu_send"
+            android:title="@string/Nav9" />
+
+        <item
+            android:id="@+id/nav_share"
+            android:icon="@drawable/ic_menu_share"
+            android:title="@string/Nav10"
+            />
+    </group>
+
+    <group
+        android:id = "@+id/extra">
+        <item
+            android:id="@+id/nav_explore"
+            android:icon="@drawable/ic_explore_black_24dp"
+            android:title="@string/Nav11" />
+
+        <item
+            android:id="@+id/nav_send_feedback"
+            android:icon="@drawable/ic_feedback_black_24dp"
+            android:title="@string/Nav12"
+            />
+        <item
+            android:id="@+id/nav_about_us"
+            android:icon="@drawable/ic_info_black_24dp"
+            android:title="@string/Nav13"
+            />
+    </group>
+
+</menu>

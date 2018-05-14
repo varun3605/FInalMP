@@ -21,6 +21,11 @@
     <string name="Nav12">Send Feedback</string>
     <string name="Nav13">About Us</string>
     <string name="search_hint">Enter Song Name… </string>
+    <string name="permission_error_message">Permission Necessary to Access Songs !!</string>
+    <string name="permission_enabling_message">ENABLE</string>
+    <string name="error_dialog_title">Need Storage Permission</string>
+    <string name="error_msg_dialog">Storage Permission necessary. Exiting Application</string>
+    <string name="dialog_positive_button">OK</string>
     <string-array name="HomeScreen">
         <item>@string/HomeTab1</item>
         <item>@string/HomeTab2</item>

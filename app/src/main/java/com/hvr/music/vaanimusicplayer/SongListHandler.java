@@ -38,7 +38,7 @@ public class SongListHandler
             if (cursor.moveToFirst()) {
                 do {
                     Song song = new Song();
-                    song.setId(cursor.getInt(cursor.getColumnIndex(MediaStore.Audio.Media._ID)));
+                    song.setId(cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media._ID)));
                     song.setSongName(cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.TITLE)));
                     song.setAlbumName(cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.ALBUM)));
                     song.setArtistName(cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.ARTIST)));

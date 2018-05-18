@@ -61,6 +61,7 @@ public class HomeActivity extends AppCompatActivity {
         setSupportActionBar(mToolbar);
 
         mActionBar = getSupportActionBar();
+        mActionBar.setTitle(R.string.home_activity_name);
         mActionBar.setDisplayHomeAsUpEnabled(true);
         mActionBar.setHomeAsUpIndicator(R.drawable.ic_menu_24dp);
 

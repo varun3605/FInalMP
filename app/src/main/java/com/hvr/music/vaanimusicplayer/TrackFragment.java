@@ -1,6 +1,7 @@
 package com.hvr.music.vaanimusicplayer;
 
 import android.content.ContentResolver;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -14,20 +15,23 @@ import android.widget.TextView;
 
 import java.util.List;
 
-public class TrackFragment extends Fragment{
+public class TrackFragment extends Fragment
+{
     private ContentResolver mContentResolver;
     private RecyclerView mRecyclerView;
     private SongAdapter mSongAdapter;
 
     @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState)
+    {
 
         View view = inflater.inflate(R.layout.fragment_track,container,false);
 
         mContentResolver = getActivity().getContentResolver();
         mRecyclerView = view.findViewById(R.id.TrackView);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        mRecyclerView.setNestedScrollingEnabled(true);
 
         updateUI();
         return view;
@@ -45,7 +49,7 @@ public class TrackFragment extends Fragment{
     private class SongAdapter extends RecyclerView.Adapter<SongHolder>
     {
 
-        private List<Song> mSongs;
+        private final List<Song> mSongs;
 
         private SongAdapter(List<Song> songs) {
             mSongs = songs;
@@ -73,9 +77,9 @@ public class TrackFragment extends Fragment{
     private class SongHolder extends RecyclerView.ViewHolder implements View.OnClickListener
     {
 
-        private TextView mSongNameTextView;
-        private TextView mArtistNameTextView;
-        private TextView mDurationTextView;
+        private final TextView mSongNameTextView;
+        private final TextView mArtistNameTextView;
+        private final TextView mDurationTextView;
         private Song mSong;
 
         private SongHolder(LayoutInflater inflater, ViewGroup parent) {
@@ -98,7 +102,8 @@ public class TrackFragment extends Fragment{
         @Override
         public void onClick(View v)
         {
-
+            Intent intent = NowPlayingActivity.newIntent(getActivity(), mSong);
+            startActivity(intent);
         }
     }
 }

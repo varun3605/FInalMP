@@ -4,7 +4,7 @@ import java.util.concurrent.TimeUnit;
 
 class Song
 {
-    private int mId;
+    private String mId;
     private String mSongName;
     private String mArtistName;
     private String mAlbumName;
@@ -13,11 +13,11 @@ class Song
     Song() {
     }
 
-    public int getId() {
+    public String getId() {
         return mId;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         mId = id;
     }
 

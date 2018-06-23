@@ -1,12 +1,20 @@
-package com.hvr.music.vaanimusicplayer;
+package com.hvr.music.vaanimusicplayer.adapter;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-class FragmentAdapter extends FragmentPagerAdapter {
+import com.hvr.music.vaanimusicplayer.fragment.AlbumFragment;
+import com.hvr.music.vaanimusicplayer.fragment.ArtistFragment;
+import com.hvr.music.vaanimusicplayer.fragment.FolderFragment;
+import com.hvr.music.vaanimusicplayer.fragment.GenreFragment;
+import com.hvr.music.vaanimusicplayer.fragment.PlaylistFragment;
+import com.hvr.music.vaanimusicplayer.fragment.TrackFragment;
 
-    FragmentAdapter(FragmentManager fm) {
+
+public class FragmentAdapter extends FragmentPagerAdapter {
+
+    public FragmentAdapter(FragmentManager fm) {
         super(fm);
     }
 
@@ -28,4 +36,6 @@ class FragmentAdapter extends FragmentPagerAdapter {
     public int getCount() {
         return 6;
     }
+
+
 }

@@ -1,4 +1,4 @@
-package com.hvr.music.vaanimusicplayer;
+package com.hvr.music.vaanimusicplayer.fragment;
 
 import android.content.ContentResolver;
 import android.content.Intent;
@@ -12,6 +12,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.hvr.music.vaanimusicplayer.NowPlayingActivity;
+import com.hvr.music.vaanimusicplayer.R;
+import com.hvr.music.vaanimusicplayer.handler.SongListHandler;
+import com.hvr.music.vaanimusicplayer.model.Song;
 
 import java.util.List;
 

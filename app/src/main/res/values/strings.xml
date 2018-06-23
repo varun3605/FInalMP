@@ -39,4 +39,12 @@
         <item>@string/HomeTab5</item>
         <item>@string/HomeTab6</item>
     </string-array>
+
+    <integer-array name="HomeTabIcon">
+        <item>@drawable/ic_audiotrack_black_24dp</item>
+        <item>@drawable/ic_album_black_24dp</item>
+        <item>@drawable/ic_person_black_24dp</item>
+        <item>@drawable/ic_queue_music_black_24dp</item>
+        <item>@drawable/ic_folder_black_24dp</item>
+    </integer-array>
 </resources>

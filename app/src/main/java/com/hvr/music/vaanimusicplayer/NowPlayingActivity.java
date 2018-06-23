@@ -20,6 +20,7 @@ import com.google.android.exoplayer2.trackselection.DefaultTrackSelector;
 import com.google.android.exoplayer2.ui.PlayerView;
 import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory;
 import com.google.android.exoplayer2.util.Util;
+import com.hvr.music.vaanimusicplayer.model.Song;
 
 public class NowPlayingActivity extends AppCompatActivity
 {

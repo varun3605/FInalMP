@@ -6,6 +6,7 @@ import android.app.SearchManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.pm.PackageManager;
+import android.content.res.TypedArray;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
@@ -26,12 +27,15 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.hvr.music.vaanimusicplayer.adapter.FragmentAdapter;
+
 public class HomeActivity extends AppCompatActivity {
 
     private FragmentAdapter mFragmentAdapter;
     private ViewPager mViewPager;
     private TabLayout mTabLayout;
     private ActionBar mActionBar;
+    private TypedArray TabIcons;
     private String[] TabNames;
     private Toolbar mToolbar;
     private DrawerLayout mDrawerLayout;
@@ -72,21 +76,25 @@ public class HomeActivity extends AppCompatActivity {
         mFragmentAdapter = new FragmentAdapter(getSupportFragmentManager());
         mViewPager.setAdapter(mFragmentAdapter);
 
+        TabIcons = getResources().obtainTypedArray(R.array.HomeTabIcon);
         TabNames = getResources().getStringArray(R.array.HomeScreen);
 
-        for (String TabName : TabNames) {
-            mTabLayout.addTab(mTabLayout.newTab().setText(TabName));
+        for (int No=0; No<=TabIcons.length();No++ )
+        {
+            mTabLayout.addTab(mTabLayout.newTab().setIcon(TabIcons.getResourceId(No,-1)));
         }
 
-        mTabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+        mTabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener()
+        {
             @Override
-            public void onTabSelected(TabLayout.Tab tab) {
+            public void onTabSelected(TabLayout.Tab tab)
+            {
                 mViewPager.setCurrentItem(tab.getPosition());
             }
 
             @Override
-            public void onTabUnselected(TabLayout.Tab tab) {
-
+            public void onTabUnselected(TabLayout.Tab tab)
+            {
             }
 
             @Override
@@ -148,6 +156,7 @@ public class HomeActivity extends AppCompatActivity {
             }
         }
     }
+
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         switch (requestCode)
@@ -168,7 +177,8 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
+    public boolean onCreateOptionsMenu(Menu menu)
+    {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.search, menu);
 

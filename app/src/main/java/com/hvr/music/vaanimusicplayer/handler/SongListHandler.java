@@ -1,4 +1,4 @@
-package com.hvr.music.vaanimusicplayer;
+package com.hvr.music.vaanimusicplayer.handler;
 
 
 import android.content.ContentResolver;
@@ -6,6 +6,8 @@ import android.content.Context;
 import android.database.Cursor;
 import android.provider.MediaStore;
 import android.util.Log;
+
+import com.hvr.music.vaanimusicplayer.model.Song;
 
 import java.util.ArrayList;
 import java.util.List;

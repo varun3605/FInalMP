@@ -1,8 +1,8 @@
-package com.hvr.music.vaanimusicplayer;
+package com.hvr.music.vaanimusicplayer.model;
 
 import java.util.concurrent.TimeUnit;
 
-class Song
+public class Song
 {
     private String mId;
     private String mSongName;
@@ -10,7 +10,7 @@ class Song
     private String mAlbumName;
     private String mDuration;
 
-    Song() {
+    public Song() {
     }
 
     public String getId() {

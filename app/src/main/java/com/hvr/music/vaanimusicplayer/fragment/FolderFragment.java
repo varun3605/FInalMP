@@ -1,4 +1,4 @@
-package com.hvr.music.vaanimusicplayer;
+package com.hvr.music.vaanimusicplayer.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -8,11 +8,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class ArtistFragment extends Fragment {
+import com.hvr.music.vaanimusicplayer.R;
+
+public class FolderFragment extends Fragment{
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_artist,container,false);
+        return inflater.inflate(R.layout.fragment_folder,container,false);
     }
 }

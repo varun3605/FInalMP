@@ -30,7 +30,9 @@
     <string name="dialog_positive_button">OK</string>
 
     <string name="home_activity_name">Library</string>
+    <string name="middle_activity_name">Albums</string>
 
+    <string name="bg_img_set">Change the Background Image</string>
     <string-array name="HomeScreen">
         <item>@string/HomeTab1</item>
         <item>@string/HomeTab2</item>

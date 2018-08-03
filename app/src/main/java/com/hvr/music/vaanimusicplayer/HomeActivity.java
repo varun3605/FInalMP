@@ -5,9 +5,13 @@ import android.app.AlertDialog;
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.TypedArray;
+import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.support.annotation.NonNull;
+import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
@@ -28,17 +32,28 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.hvr.music.vaanimusicplayer.adapter.FragmentAdapter;
+import com.hvr.music.vaanimusicplayer.handler.BgImageHandler;
+
+import java.io.FileNotFoundException;
+import java.io.InputStream;
+
+import pl.droidsonroids.gif.GifImageView;
 
 public class HomeActivity extends AppCompatActivity {
 
     private FragmentAdapter mFragmentAdapter;
     private ViewPager mViewPager;
     private TabLayout mTabLayout;
+    private GifImageView mGifImageView;
     private ActionBar mActionBar;
     private TypedArray TabIcons;
     private String[] TabNames;
     private Toolbar mToolbar;
     private DrawerLayout mDrawerLayout;
+    private NavigationView mNavigationView;
+    private String mBgimagePath;
+    private Uri mBgImageUri;
+    private InputStream mBgInputStream;
     private static final int REQUEST_CODE_EXTERNAL_STORAGE = 101;
     private static boolean FIRST_TIME = true;
 
@@ -72,6 +87,9 @@ public class HomeActivity extends AppCompatActivity {
         mViewPager = findViewById(R.id.pager);
         mTabLayout = findViewById(R.id.tabL);
         mDrawerLayout = findViewById(R.id.DrawerRoot);
+        mNavigationView = findViewById(R.id.nav_view);
+
+        mGifImageView = findViewById(R.id.bg_image_view);
 
         mFragmentAdapter = new FragmentAdapter(getSupportFragmentManager());
         mViewPager.setAdapter(mFragmentAdapter);
@@ -119,6 +137,21 @@ public class HomeActivity extends AppCompatActivity {
 
             }
         });
+
+        /*mNavigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId())
+                {
+                    case R.id.settings:
+                        Intent intent = SettingsActivity.newIntent(HomeActivity.this);
+                        mDrawerLayout.closeDrawers();
+                        startActivity(intent);
+                        break;
+                }
+                return true;
+            }
+        });*/
     }
 
     private void requestPermission()
@@ -198,5 +231,27 @@ public class HomeActivity extends AppCompatActivity {
                 return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onResume() {
+        mBgimagePath = BgImageHandler.getInstance().getImageUri();
+        if(mBgimagePath == null || mBgimagePath.trim().equals(""))
+        {
+            mGifImageView.setBackgroundResource(R.drawable.bg_track);
+        }
+        else
+        {
+            mBgImageUri = Uri.parse(mBgimagePath);
+            try {
+                mBgInputStream = getContentResolver().openInputStream(mBgImageUri);
+                mGifImageView.setBackground(Drawable.createFromStream(mBgInputStream, mBgImageUri.toString()));
+            }
+            catch(FileNotFoundException fnfe)
+            {
+
+            }
+        }
+        super.onResume();
     }
 }

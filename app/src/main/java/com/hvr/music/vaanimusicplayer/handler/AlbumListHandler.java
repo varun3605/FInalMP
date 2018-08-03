@@ -5,8 +5,10 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.database.Cursor;
 import android.provider.MediaStore;
+import android.util.Log;
 
 import com.hvr.music.vaanimusicplayer.model.Album;
+import com.hvr.music.vaanimusicplayer.model.Song;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +16,11 @@ import java.util.List;
 public class AlbumListHandler
 {
     private static AlbumListHandler sAlbumListHandler;
-    private final List<Album> mAlbums;
+    private List<Album> mAlbums;
+    private List<Song> mSonginAlbum;
+
+    public AlbumListHandler() {
+    }
 
     public static AlbumListHandler get(Context context, ContentResolver contentResolver)
     {
@@ -47,6 +53,35 @@ public class AlbumListHandler
             }
         }
         cursor.close();
+    }
+
+    public List<Song> AlbumSongRetriever(ContentResolver contentResolver, String mAlbumId)
+    {
+        String sortOrder = MediaStore.Audio.Media.DEFAULT_SORT_ORDER + " ASC";
+        String where = MediaStore.Audio.Media.ALBUM_ID + "=?";
+        String[] albumName = {mAlbumId};
+        mSonginAlbum = new ArrayList<>();
+
+        Cursor cursor = contentResolver.query(MediaStore.Audio.Media.EXTERNAL_CONTENT_URI, null,where,albumName,sortOrder);
+        for(int i=0;i<cursor.getCount();i++)
+        {
+            mSonginAlbum.clear();
+            if (cursor.moveToFirst()) {
+                do {
+                    Song song = new Song();
+                    song.setId(cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media._ID)));
+                    song.setSongName(cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.TITLE)));
+                    song.setAlbumName(cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.ALBUM)));
+                    song.setArtistName(cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.ARTIST)));
+                    song.setDuration(cursor.getInt(cursor.getColumnIndex(MediaStore.Audio.Media.DURATION)));
+                    //Log.i("App", song.getAlbumName() + " " + song.getSongName() + " " + song.getArtistName() + " " + song.getDuration());
+
+                    mSonginAlbum.add(song);
+                } while (cursor.moveToNext());
+            }
+        }
+        cursor.close();
+        return mSonginAlbum;
     }
 
     public List<Album> getAlbums()

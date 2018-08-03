@@ -45,7 +45,7 @@ public class SongListHandler
                     song.setAlbumName(cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.ALBUM)));
                     song.setArtistName(cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.ARTIST)));
                     song.setDuration(cursor.getInt(cursor.getColumnIndex(MediaStore.Audio.Media.DURATION)));
-                    Log.i("App", song.getAlbumName() + " " + song.getSongName() + " " + song.getArtistName() + " " + song.getDuration());
+                    //Log.i("App", song.getAlbumName() + " " + song.getSongName() + " " + song.getArtistName() + " " + song.getDuration());
 
                     mSongs.add(song);
                 } while (cursor.moveToNext());

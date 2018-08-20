@@ -97,7 +97,7 @@ public class HomeActivity extends AppCompatActivity {
         TabIcons = getResources().obtainTypedArray(R.array.HomeTabIcon);
         TabNames = getResources().getStringArray(R.array.HomeScreen);
 
-        for (int No=0; No<=TabIcons.length();No++ )
+        for (int No=0; No<=TabIcons.length() - 1 ; No++)
         {
             mTabLayout.addTab(mTabLayout.newTab().setIcon(TabIcons.getResourceId(No,-1)));
         }
@@ -179,7 +179,8 @@ public class HomeActivity extends AppCompatActivity {
                 AlertDialog.Builder builder = new AlertDialog.Builder(HomeActivity.this);
                 builder.setTitle(R.string.error_dialog_title);
                 builder.setMessage(R.string.error_msg_dialog);
-                builder.setPositiveButton(R.string.dialog_positive_button, new DialogInterface.OnClickListener() {
+                builder.setPositiveButton(R.string.dialog_positive_button, new DialogInterface.OnClickListener()
+                {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         finish();
@@ -223,7 +224,8 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
         switch (item.getItemId())
         {
             case android.R.id.home:
